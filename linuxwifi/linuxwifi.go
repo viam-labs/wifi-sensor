@@ -1,7 +1,7 @@
 //go:build linux
 
-// Package wifi implements a wifi strength sensor
-package wifi
+// Package linuxwifi implements a wifi strength sensor
+package linuxwifi
 
 import (
 	"context"
@@ -20,14 +20,15 @@ import (
 	"go.viam.com/rdk/resource"
 )
 
-var modelname = resource.NewDefaultModel("linux-wifi")
+// Model represents a linux wifi strength sensor model.
+var Model = resource.NewModel("viam-labs", "sensor", "linux-wifi")
 
 const wirelessInfoPath string = "/proc/net/wireless"
 
 func init() {
 	registry.RegisterComponent(
 		sensor.Subtype,
-		modelname,
+		Model,
 		registry.Component{Constructor: func(
 			_ context.Context,
 			_ registry.Dependencies,
