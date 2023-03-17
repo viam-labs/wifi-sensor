@@ -24,8 +24,19 @@ Copy the binary to the robot (system where viam-server is running) and add the f
     ...,
     {
       "executable_path": "<path_to_binary>",
-      "name": "wifi"
-    }
+      "name": "wifisensor"
+    },
+    ...,
+  ],
+  "components": [
+    ...,
+    {
+      "name": "wifi",
+      "type": "sensor",
+      "model": "viam-labs:sensor:linux-wifi",
+      "depends_on": [],
+      "attributes": {}
+    },
     ...,
   ],
   ...
