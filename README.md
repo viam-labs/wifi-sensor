@@ -12,11 +12,11 @@ If you clone this repository to the target environment where you run your Viam r
 go build -o wifi
 ```
 
-Alternatively, if you want to build this a binary for a different target environment, please use the [viam canon tool](https://github.com/viamrobotics/canon).
+Alternatively, if you want to build a binary for a different target environment, please use the [viam canon tool](https://github.com/viamrobotics/canon).
 
 ### 2. Add to robot configuration
 
-Copy the binary to in the environment where your Viam robot is running and add the following to your configuration:
+Copy the binary to the robot (system where viam-server is running) and add the following to your configuration:
 
 ```
   ...
