@@ -33,9 +33,7 @@ Copy the binary to the robot (system where viam-server is running) and add the f
     {
       "name": "wifi",
       "type": "sensor",
-      "model": "viam-labs:sensor:linux-wifi",
-      "depends_on": [],
-      "attributes": {}
+      "model": "viam-labs:sensor:linux-wifi"
     },
     ...,
   ],
