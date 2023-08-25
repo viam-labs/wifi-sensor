@@ -6,7 +6,7 @@
   "models": [
     {
       "api": "rdk:component:sensor",
-      "model": "viam-labs:sensor:linux-wifi"
+      "model": "viam:sensor:linux-wifi"
     }
   ],
   "entrypoint": "wifi"
