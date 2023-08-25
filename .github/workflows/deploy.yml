@@ -8,38 +8,29 @@ env:
 
 jobs:
   build:
-    strategy:
-      matrix:
-        platform: [amd64, arm64]
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
     - uses: actions/setup-go@v4
       with:
         go-version: '^1.20.6'
+    - name: deps
+      run: go mod download
     - name: build
-      run: GOARCH=${{ matrix.platform }} make module.tar.gz
-    - uses: actions/upload-artifact@v3
-      with:
-        name: binary-${{ matrix.platform }}
-        path: module.tar.gz
-  upload:
-    # if: github.event_name == 'release'
-    needs: [build]
-    # todo: remove concurrency group once APP-2549 is fixed
-    concurrency: no-simultaneous-upload-${{ github.ref_name }}-${{ github.run_number }}
-    strategy:
-      matrix:
-        platform: [amd64, arm64]
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/download-artifact@v3
-      with:
-        name: binary-${{ matrix.platform }}
+      run: |
+        GOARCH=arm64 make module.tar.gz && mv module.tar.gz module-arm64.tar.gz
+        GOARCH=amd64 make module.tar.gz && mv module.tar.gz module-amd64.tar.gz
     - uses: viamrobotics/upload-module@main
-      if: github.event_name == 'release'
+      # if: github.event_name == 'release'
       with:
-        module-path: module.tar.gz
-        platform: linux/${{ matrix.platform }}
+        module-path: module-arm64.tar.gz
+        platform: linux/arm64
+        version: ${{ env.VERSION }}
+        cli-config-secret: ${{ secrets.cli_config }}
+    - uses: viamrobotics/upload-module@main
+      # if: github.event_name == 'release'
+      with:
+        module-path: module-amd64.tar.gz
+        platform: linux/amd64
         version: ${{ env.VERSION }}
         cli-config-secret: ${{ secrets.cli_config }}
