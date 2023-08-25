@@ -24,7 +24,7 @@ jobs:
         name: binary-${{ matrix.platform }}
         path: module.tar.gz
   upload:
-    if: github.event_name == 'release'
+    # if: github.event_name == 'release'
     needs: [build]
     # todo: remove concurrency group once APP-2549 is fixed
     concurrency: no-simultaneous-upload-${{ github.ref_name }}-${{ github.run_number }}
