@@ -10,19 +10,24 @@ For iterative development, you can run a module locally (laptop or robot) and te
 
 Create the binary with `make wifi`.
 
-Your config will look something like this:
+Your config will look something like this (replace /path/to/wifi-sensor with the actual path on your system):
 
 ```json
 {
-  "modules": [{
-    "executable_path": "/path/to/project/wifi",
-    "name": "wifisensor"
-  }],
-  "components": [{
-    "name": "wifi",
-    "type": "sensor",
-    "model": "viam-labs:sensor:linux-wifi"
-  }]
+  "components": [
+    {
+      "name": "whatever",
+      "model": "viam:sensor:linux-wifi",
+      "type": "sensor"
+    }
+  ],
+  "modules": [
+    {
+      "name": "wifi",
+      "executable_path": "/path/to/wifi-sensor/wifi",
+      "type": "local"
+    }
+  ]
 }
 ```
 
