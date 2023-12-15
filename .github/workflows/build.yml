@@ -3,6 +3,7 @@ on:
     inputs:
       version:
         type: string
+  push:
 
 jobs:
   build:
