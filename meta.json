@@ -1,4 +1,5 @@
 {
+  "$schema": "https://dl.viam.dev/module.schema.json",
   "module_id": "viam:golang-wifi-example",
   "visibility": "private",
   "url": "https://github.com/viam-labs/wifi-sensor",
@@ -11,7 +12,8 @@
   ],
   "build": {
     "build": "make module.tar.gz",
-    "arch" : ["linux/amd64", "linux/arm64", "darwin/arm64"]
+    "arch" : ["linux/amd64", "linux/arm64", "darwin/arm64"],
+    "darwin_deps": ["go"]
   },
   "entrypoint": "wifi"
 }
