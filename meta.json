@@ -1,6 +1,6 @@
 {
   "$schema": "https://dl.viam.dev/module.schema.json",
-  "module_id": "viam:golang-wifi-example",
+  "module_id": "5784b2a8-d84f-473b-9be5-9a2abe7e8752:my_setup_phase",
   "visibility": "private",
   "url": "https://github.com/viam-labs/wifi-sensor",
   "description": "Example module for golang",
