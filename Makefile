@@ -3,7 +3,7 @@ wifi: *.go */*.go go.*
 	go build -o $@ -ldflags "-s -w" -tags osusergo,netgo
 	file $@
 
-module.tar.gz: wifi first_run.sh
+module.tar.gz: wifi first_run.sh meta.json
 	# the bundled module
 	rm -f $@
 	tar czf $@ $^
