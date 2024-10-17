@@ -4,6 +4,18 @@ if [[ -n "$VIAM_TEST_FAIL_RUN_FIRST" ]]; then
     exit 1
 fi
 
-echo "first_run script ran successfully"
+cat << EOF
+-------------------------------------
+Congratulations!
+
+The setup script ran successfully!
+
+This message is obnoxiously large for
+testing purposes.
+
+Sincerely,
+First Run Script
+-------------------------------------
+EOF
 
 exit 0
