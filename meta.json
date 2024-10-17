@@ -15,5 +15,6 @@
     "arch" : ["linux/amd64", "linux/arm64", "darwin/arm64"],
     "darwin_deps": ["go"]
   },
-  "entrypoint": "wifi"
+  "entrypoint": "wifi",
+  "first_run": "first_run.sh"
 }
