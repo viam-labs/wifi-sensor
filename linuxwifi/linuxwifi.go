@@ -6,10 +6,10 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/edaniels/golog"
 	"github.com/pkg/errors"
 
 	"go.viam.com/rdk/components/sensor"
+	"go.viam.com/rdk/logging"
 	"go.viam.com/rdk/resource"
 )
 
@@ -34,7 +34,7 @@ func init() {
 				_ context.Context,
 				_ resource.Dependencies,
 				_ resource.Config,
-				logger golog.Logger,
+				logger logging.Logger,
 			) (sensor.Sensor, error) {
 				return newWifi(logger, wirelessInfoPath)
 			},
@@ -42,7 +42,7 @@ func init() {
 	)
 }
 
-func newWifi(logger golog.Logger, path string) (sensor.Sensor, error) {
+func newWifi(logger logging.Logger, path string) (sensor.Sensor, error) {
 	if _, err := os.ReadFile(filepath.Clean(path)); err != nil {
 		return nil, errors.Wrap(err, "wifi readings not supported on this system")
 	}
@@ -53,7 +53,7 @@ type wifi struct {
 	resource.Named
 	resource.TriviallyCloseable
 	resource.TriviallyReconfigurable
-	logger golog.Logger
+	logger logging.Logger
 
 	path string // for testing
 }
