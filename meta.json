@@ -12,7 +12,7 @@
   ],
   "build": {
     "build": "make module.tar.gz",
-    "arch" : ["linux/amd64", "linux/arm64", "darwin/arm64"],
+    "arch" : ["linux/amd64", "linux/arm64"],
     "darwin_deps": ["go"]
   },
   "entrypoint": "wifi"
