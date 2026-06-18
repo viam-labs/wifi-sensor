@@ -13,7 +13,7 @@ env:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-8-core
     steps:
     - uses: actions/checkout@v3
     - uses: viamrobotics/build-action@v1
