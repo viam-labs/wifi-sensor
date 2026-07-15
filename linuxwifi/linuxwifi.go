@@ -21,8 +21,8 @@ const wirelessInfoPath string = "/proc/net/wireless"
 // stub config to satisfy resource.Registration
 type StubConfig struct{}
 
-func (cfg StubConfig) Validate(path string) ([]string, error) {
-	return []string{}, nil
+func (cfg StubConfig) Validate(path string) ([]string, []string, error) {
+	return []string{}, []string{}, nil
 }
 
 func init() {
@@ -56,6 +56,10 @@ type wifi struct {
 
 	path string // for testing
 	name resource.Name
+}
+
+func (sensor *wifi) Status(ctx context.Context) (map[string]interface{}, error) {
+	return map[string]interface{}{}, nil
 }
 
 // DoCommand always returns unimplemented but can be implemented by the embedder.
